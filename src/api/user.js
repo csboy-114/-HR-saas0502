@@ -1,24 +1,26 @@
 import request from '@/utils/request'
-
+const url = '/sys'
 export function login(data) {
   return request({
-    url: '/vue-admin-template/user/login',
+    url: `${url}/login`,
     method: 'post',
     data
   })
 }
 
-export function getInfo(token) {
+export function getUserInfo(token) {
   return request({
-    url: '/vue-admin-template/user/info',
-    method: 'get',
-    params: { token }
+    url: `${url}/profile`,
+    method: 'post'
+  })
+}
+
+export function getUserDetailById(id) {
+  return request({
+    url: `${url}/user/${id}`
   })
 }
 
 export function logout() {
-  return request({
-    url: '/vue-admin-template/user/logout',
-    method: 'post'
-  })
+
 }
