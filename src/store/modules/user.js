@@ -1,4 +1,4 @@
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getToken, setToken, removeToken, setTimeStamp } from '@/utils/auth'
 import { login, getUserInfo, getUserDetailById } from '@/api/user'
 // 状态
 const state = {
@@ -37,6 +37,7 @@ const actions = {
       // 现在有用户token
       // actions 修改state 必须通过mutations
       context.commit('setToken', result)
+      setTimeStamp()
     }
   },
   async getUserInfo(context) {
